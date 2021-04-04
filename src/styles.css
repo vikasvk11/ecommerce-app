@@ -1,0 +1,85 @@
+@import url("https://alphacss.netlify.app/alpha.css");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+a {
+  color: white;
+}
+
+.af {
+  font-size: 0.6rem;
+  margin: 0rem 0.5rem;
+}
+
+.product-card {
+  border: 1px solid rgb(228, 228, 228);
+}
+
+.product-card > img {
+  width: 100%;
+  cursor: pointer;
+}
+
+.btn-primary:disabled {
+  background-color: rgb(201, 201, 201);
+}
+
+.btn-primary:disabled:hover {
+  background-color: rgb(201, 201, 201);
+  cursor: default;
+}
+
+.wishlist-badge:hover {
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.363));
+}
+
+.card-title {
+  font-size: 1rem;
+}
+
+.product-price {
+  font-size: 1rem;
+}
+
+.delete-badge:hover {
+  color: red;
+}
+
+.btn-secondary {
+  font-size: 1rem;
+  margin: 1rem;
+  padding: 0.15rem 0.6rem;
+}
+
+.btn-secondary:disabled {
+  color: rgb(175, 175, 175);
+}
+
+.btn-secondary:disabled:hover {
+  background-color: rgb(233, 233, 233);
+  cursor: not-allowed;
+}
+
+.remove {
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  background-color: transparent;
+  margin: 0 0.5rem;
+}
+
+.remove:hover {
+  background-color: rgb(241, 241, 241);
+}
+
+.mg-a-1 {
+  margin: 0.5rem 0.5rem;
+}
+
+.nav-active {
+  background-color: #3ca1cd;
+  color: white;
+}
