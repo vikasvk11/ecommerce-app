@@ -7,11 +7,11 @@ export function Cart() {
 
   return (
     <div>
-      <h1>Cart</h1>
       {cartState.cart.length === 0 ? (
         <h1>It's looks lonely in here . . .</h1>
       ) : (
         <div>
+          <h1>My Cart ({cartState.cart.length})</h1>
           <h2>
             Total Price: Rs.
             {cartState.cart.reduce((acc, cur) => cur.qty * cur.price + acc, 0)}
