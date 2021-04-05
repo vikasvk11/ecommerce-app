@@ -222,6 +222,16 @@ export function Products() {
           )
         )}
       </div>
+      <div className="filter-sort">
+        <div>
+          <span className="material-icons">filter_list</span>
+          Filter
+        </div>
+        <div>
+          <span className="material-icons">sort</span>
+          Sort
+        </div>
+      </div>
     </>
   );
 }
