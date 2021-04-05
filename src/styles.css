@@ -46,7 +46,7 @@ a {
 }
 
 .delete-badge:hover {
-  color: red;
+  color: #ff2e63;
 }
 
 .btn-secondary {
@@ -128,4 +128,33 @@ a {
 
 .filter-sort > div:hover {
   background-color: #378db3;
+}
+
+.filter-options {
+  position: fixed;
+  bottom: 2.5rem;
+  background-color: #f5fcff;
+  width: 100%;
+  transform: translateY(100%);
+  transition: all 0.5s ease;
+}
+
+.filter-active {
+  display: block;
+  transform: translateY(0%);
+  transition: all 0.5s ease;
+}
+
+.filter-options_1,
+.filter-options_2 {
+  display: block;
+  margin: 1rem;
+}
+
+.filter-options_header {
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+  color: #3ca1cd;
+  margin-top: 1rem;
 }

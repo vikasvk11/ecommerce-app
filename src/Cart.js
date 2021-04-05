@@ -35,13 +35,11 @@ export function Cart() {
 
                 {fastDelivery ? (
                   <div style={{ fontSize: "0.8rem", paddingLeft: "0.5rem" }}>
-                    {" "}
-                    Fast Delivery{" "}
+                    Fast Delivery
                   </div>
                 ) : (
                   <div style={{ fontSize: "0.8rem", paddingLeft: "0.5rem" }}>
-                    {" "}
-                    3 days minimum{" "}
+                    3 days minimum
                   </div>
                 )}
                 <button

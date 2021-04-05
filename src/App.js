@@ -11,9 +11,14 @@ export default function App() {
   return (
     <>
       <nav className="nav-bar">
+        <img
+          src="cart-icon-v2.png"
+          style={{ objectFit: "contain", width: "30px" }}
+          alt="logo"
+        />
         <h1>
           <NavLink end to="/" className="nav-header">
-            the Cart
+            the Cart Co
           </NavLink>
         </h1>
         <ul className="nav-list">
