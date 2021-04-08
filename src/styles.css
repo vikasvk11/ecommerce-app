@@ -158,3 +158,17 @@ a {
   color: #3ca1cd;
   margin-top: 1rem;
 }
+
+.toast-container {
+  position: relative;
+}
+
+.toast {
+  bottom: -3rem;
+  right: 0;
+  transition: transform 0.5s;
+}
+
+.toast-visible {
+  bottom: 3rem;
+}

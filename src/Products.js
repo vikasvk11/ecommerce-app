@@ -43,7 +43,8 @@ const data = [...Array(50)].map((item, index) => ({
 export function Products() {
   const [optionsState, optionsDispatch] = useReducer(optionsReducer, {
     filter: false,
-    sort: false
+    sort: false,
+    wishlist: false
   });
 
   function optionsReducer(state, action) {
@@ -56,6 +57,8 @@ export function Products() {
         if (state.sort) {
           return { ...state, sort: false };
         } else return { ...state, filter: false, sort: true };
+      case "wishlist":
+        return { ...state, wishlist: action.payload };
       default:
         return state;
     }
@@ -133,7 +136,7 @@ export function Products() {
                 </span>
               ) : (
                 <span
-                  onClick={() =>
+                  onClick={() => {
                     cartDispatch({
                       type: "ADD_TO_WISHLIST",
                       payload: {
@@ -146,8 +149,9 @@ export function Products() {
                         fastDelivery,
                         ratings
                       }
-                    })
-                  }
+                    });
+                    optionsDispatch({ type: "wishlist", payload: true });
+                  }}
                   className="material-icons wishlist-badge"
                 >
                   favorite
@@ -262,6 +266,15 @@ export function Products() {
           <span className="material-icons">sort</span>
           Sort
         </div>
+      </div>
+
+      <div className="toast ">
+        <p>Added to Cart</p>
+        <span className="material-icons">close</span>
+      </div>
+
+      <div className={`toast ${optionsState.wishlist ? "toast-visible" : ""}`}>
+        <p>Added to Wishlist</p>
       </div>
     </>
   );

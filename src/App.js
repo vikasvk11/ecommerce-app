@@ -5,11 +5,14 @@ import { Wishlist } from "./Wishlist";
 import { Cart } from "./Cart";
 import { NavLink, Route, Routes } from "react-router-dom";
 import { useCart } from "./CartContext";
+import { Toast } from "./Toast";
 
 export default function App() {
   const { cartState, cartDispatch } = useCart();
+  const item = { message: "Hello" };
   return (
     <>
+      <Toast {...item} />
       <nav className="nav-bar">
         <img
           src="cart-icon-v2.png"
@@ -48,6 +51,7 @@ export default function App() {
           </li>
         </ul>
       </nav>
+
       <Routes>
         <Route path="/" element={<Products />} />
         <Route path="/cart" element={<Cart />} />
