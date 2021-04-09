@@ -8,14 +8,16 @@ export function Cart() {
   return (
     <div>
       {cartState.cart.length === 0 ? (
-        <h1>It's looks lonely in here . . .</h1>
+        <div className="cart-container empty">
+          <h1>It looks empty in here</h1>
+          <img className="empty-cart-img" src="cart-icon-v3.png" alt="logo" />
+          <button className="btn-primary">
+            <NavLink to="/products">Shop Now</NavLink>
+          </button>
+        </div>
       ) : (
-        <div>
-          <h1>My Cart ({cartState.cart.length})</h1>
-          <h2>
-            Total Price: Rs.
-            {cartState.cart.reduce((acc, cur) => cur.qty * cur.price + acc, 0)}
-          </h2>
+        <div className="cart-container">
+          <h1 className="cart-header">My Cart ({cartState.cart.length})</h1>
           {cartState.cart.map(
             ({
               id,
@@ -31,7 +33,7 @@ export function Cart() {
               <div className="product-card" key={id}>
                 <img src={image} alt={productName} />
                 <p className="card-title"> {name} </p>
-                <p className="product-price">Rs. {price * qty} </p>
+                <p className="product-price">&#8377; {price * qty} </p>
 
                 {fastDelivery ? (
                   <div style={{ fontSize: "0.8rem", paddingLeft: "0.5rem" }}>
@@ -100,6 +102,34 @@ export function Cart() {
               </div>
             )
           )}
+          <div className="checkout">
+            <h1 className="checkout-header">CART DETAILS</h1>
+            <div className="checkout-el">
+              <p>Total Price</p>
+              <p>
+                &#8377;{" "}
+                {cartState.cart.reduce(
+                  (acc, cur) => cur.qty * cur.price + acc,
+                  0
+                )}
+              </p>
+            </div>
+            <div className="checkout-el">
+              <p>Delivery Charges</p>
+              <p className="offer">FREE</p>
+            </div>
+            <div className="checkout-el total">
+              <p>Total Amount</p>
+              <p>
+                &#8377;{" "}
+                {cartState.cart.reduce(
+                  (acc, cur) => cur.qty * cur.price + acc,
+                  0
+                )}
+              </p>
+            </div>
+            <button className="btn-primary">Checkout</button>
+          </div>
         </div>
       )}
     </div>

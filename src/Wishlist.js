@@ -6,11 +6,19 @@ export function Wishlist() {
 
   return (
     <div>
-      <h1>Wishlist</h1>
       {cartState.wishlist.length === 0 ? (
-        <h1>Go wish something . . .</h1>
+        <div className="cart-container empty">
+          <h1>What do you wish for? We have it all . . .</h1>
+          <img className="empty-cart-img" src="cart-icon-v3.png" alt="logo" />
+          <button className="btn-primary">
+            <NavLink to="/products">Shop Now</NavLink>
+          </button>
+        </div>
       ) : (
-        <div>
+        <div className="wishlist-container">
+          <h1 className="cart-header">
+            My Wishlist ({cartState.wishlist.length})
+          </h1>
           {cartState.wishlist.map(
             ({
               id,
@@ -26,7 +34,7 @@ export function Wishlist() {
               <div className="product-card" key={id}>
                 <img src={image} alt={productName} />
                 <p className="card-title"> {name} </p>
-                <p className="product-price">Rs. {price}</p>
+                <p className="product-price">&#8377; {price}</p>
                 {inStock && (
                   <div style={{ fontSize: "0.8rem", paddingLeft: "0.5rem" }}>
                     {" "}

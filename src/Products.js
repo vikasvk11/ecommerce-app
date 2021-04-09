@@ -5,6 +5,7 @@ import { useProduct } from "./ProductContext";
 import { NavLink, Route, Routes } from "react-router-dom";
 
 import faker from "faker";
+import { useToast } from "./ToastProvider";
 
 faker.seed(123);
 
@@ -57,8 +58,6 @@ export function Products() {
         if (state.sort) {
           return { ...state, sort: false };
         } else return { ...state, filter: false, sort: true };
-      case "wishlist":
-        return { ...state, wishlist: action.payload };
       default:
         return state;
     }
@@ -83,6 +82,8 @@ export function Products() {
   const { cartState, cartDispatch } = useCart();
 
   const { productState, productDispatch } = useProduct();
+
+  const { toastDispatch } = useToast();
 
   const sortedData = sortData(data, productState);
   const filteredData = filterData(sortedData, productState);
@@ -114,7 +115,7 @@ export function Products() {
             >
               <img src={image} alt={productName} />
               <p className="card-title"> {name} </p>
-              <p className="product-price">Rs. {price}</p>
+              <p className="product-price">&#8377; {price}</p>
               {!inStock && (
                 <div style={{ color: "grey", fontSize: "0.8rem" }}>
                   Out of Stock
@@ -126,9 +127,10 @@ export function Products() {
               </p>
               {cartState.wishlist.find((item) => id === item.id) ? (
                 <span
-                  onClick={() =>
-                    cartDispatch({ type: "REMOVE_WISHLIST", payload: { id } })
-                  }
+                  onClick={() => {
+                    cartDispatch({ type: "REMOVE_WISHLIST", payload: { id } });
+                    toastDispatch({ type: "REMOVE_WISHLIST" });
+                  }}
                   className="material-icons wishlist-badge"
                   style={{ color: "#DA4167" }}
                 >
@@ -150,7 +152,7 @@ export function Products() {
                         ratings
                       }
                     });
-                    optionsDispatch({ type: "wishlist", payload: true });
+                    toastDispatch({ type: "TO_WISHLIST" });
                   }}
                   className="material-icons wishlist-badge"
                 >
@@ -177,7 +179,7 @@ export function Products() {
                   <button
                     className="btn-primary mg-1"
                     disabled={inStock ? false : true}
-                    onClick={() =>
+                    onClick={() => {
                       cartDispatch({
                         type: "ADDTOCART",
                         payload: {
@@ -190,8 +192,9 @@ export function Products() {
                           fastDelivery,
                           ratings
                         }
-                      })
-                    }
+                      });
+                      toastDispatch({ type: "TO_CART" });
+                    }}
                   >
                     ADD TO CART
                   </button>
