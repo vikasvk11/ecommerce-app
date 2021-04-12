@@ -115,7 +115,7 @@ export function Products() {
             >
               <img src={image} alt={productName} />
               <p className="card-title"> {name} </p>
-              <p className="product-price">&#8377; {price}</p>
+              <p className="product-price">&#8377; {price.toLocaleString()}</p>
               {!inStock && (
                 <div style={{ color: "grey", fontSize: "0.8rem" }}>
                   Out of Stock
@@ -167,7 +167,7 @@ export function Products() {
               )}
               <div>
                 {cartState.cart.find((item) => id === item.id) ? (
-                  <button className="btn-primary mg-1">
+                  <button className="btn-primary mg-1 ">
                     <NavLink to="/cart">
                       GO TO CART
                       <span className="material-icons af">

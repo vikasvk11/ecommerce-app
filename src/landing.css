@@ -14,6 +14,7 @@
 .banner {
   /* object-fit: contain; */
   width: 100%;
+  cursor: pointer;
 }
 
 .image-card {
@@ -22,10 +23,40 @@
   display: inline-block;
   box-shadow: 0 0 0 0;
   border-radius: 0;
+  cursor: pointer;
 }
 
 .landing-product {
   width: 100%;
   height: 10rem;
   object-fit: contain;
+}
+
+.modal {
+  height: auto;
+}
+
+.modal > p {
+  border: none;
+  height: auto;
+  margin-top: 1rem;
+  padding: 0 1rem;
+}
+
+.modal > h1 {
+  color: rgb(87, 116, 133);
+  padding-left: 1rem;
+}
+
+.modal-btn-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.btn-primary.modal-btn {
+  position: relative;
+  display: inline-block;
+  width: 4rem;
 }

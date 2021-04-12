@@ -45,6 +45,10 @@ a {
   font-size: 1rem;
 }
 
+.delete-badge {
+  color: #ff5e8677;
+}
+
 .delete-badge:hover {
   color: #ff2e63;
 }
@@ -55,13 +59,24 @@ a {
   padding: 0.15rem 0.6rem;
 }
 
+.btn-secondary:focus {
+  outline: 1px solid rgb(150, 150, 150);
+}
+
 .btn-secondary:disabled {
-  color: rgb(175, 175, 175);
+  color: rgb(201, 201, 201);
+  background-color: rgb(243, 243, 243);
+}
+
+.btn-secondary:disabled:hover {
+  color: rgb(201, 201, 201);
+  background-color: rgb(243, 243, 243);
 }
 
 .btn-secondary:disabled:hover {
   background-color: rgb(233, 233, 233);
   cursor: not-allowed;
+  outline: ;
 }
 
 .remove {
