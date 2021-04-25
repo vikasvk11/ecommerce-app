@@ -1,2 +1,3 @@
 # ecommerce-app
-Created with CodeSandbox
+
+The Cart Company
